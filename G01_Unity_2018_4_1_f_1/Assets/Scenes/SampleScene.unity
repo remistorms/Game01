@@ -146,9 +146,6 @@ MonoBehaviour:
     type: 3}
   RandomTiles:
   - {fileID: 4485441340558912937, guid: 01281ac45a76d4e749d43427dbc38453, type: 3}
-  - {fileID: 1656422362700734415, guid: 4c26851cf69c54eb6a009c98c8348dcf, type: 3}
-  - {fileID: 7170444562929899673, guid: 9f8feac60c73d4a54983d49d1947fc8c, type: 3}
-  - {fileID: 4188858563157665240, guid: 5238fb10a0cce4c329d219b73b9e52c2, type: 3}
   allMapTiles: []
 --- !u!4 &55778127
 Transform:
