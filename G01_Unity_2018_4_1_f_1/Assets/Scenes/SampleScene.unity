@@ -141,12 +141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73e449e60a1f4579b17d2f77b2de74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: 4
-  tileSize: 10
+  mapSize: 6
   HomeTile: {fileID: 7346137375981744517, guid: 67a460a2bfc634adb90551eda52bd792,
     type: 3}
   RandomTiles:
-  - {fileID: 362091037005429019, guid: cea1b88287e174108ab1cab7c3cc2523, type: 3}
+  - {fileID: 4485441340558912937, guid: 01281ac45a76d4e749d43427dbc38453, type: 3}
+  - {fileID: 1656422362700734415, guid: 4c26851cf69c54eb6a009c98c8348dcf, type: 3}
+  - {fileID: 7170444562929899673, guid: 9f8feac60c73d4a54983d49d1947fc8c, type: 3}
+  - {fileID: 4188858563157665240, guid: 5238fb10a0cce4c329d219b73b9e52c2, type: 3}
   allMapTiles: []
 --- !u!4 &55778127
 Transform:

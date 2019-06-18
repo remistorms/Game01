@@ -6,7 +6,7 @@ public class Map_Manager : MonoBehaviour
 {
 
     [SerializeField] private int mapSize = 4;
-    [SerializeField] private float tileSize = 10;
+    private float tileSize = 10;
     [SerializeField] private GameObject HomeTile;
     [SerializeField] private GameObject[] RandomTiles;
 
@@ -26,8 +26,6 @@ public class Map_Manager : MonoBehaviour
 
     public void GenerateMap()
     {
-
-
         ClearMap();
 
         GameObject selectedTile;
@@ -52,6 +50,9 @@ public class Map_Manager : MonoBehaviour
                 }
 
                 GameObject instantiatedTile = Instantiate(selectedTile, this.transform) as GameObject;
+
+                instantiatedTile.GetComponent<Tile>().isActiveTile = false;
+                instantiatedTile.GetComponent<Tile>().coordinateOnMap = mapCoordinate;
 
                 allMapTiles.Add(instantiatedTile);
                 TileCoordinatesDictionary.Add(mapCoordinate, instantiatedTile);
@@ -118,6 +119,42 @@ public class Map_Manager : MonoBehaviour
         }
 
         return neighbourgs;
+    }
+
+    private void Update()
+    {
+        if ( Input.GetKeyDown(KeyCode.G) )
+        {
+            GenerateMap();
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Vector3 randomCoordinate = new Vector3(Random.Range(-mapSize, mapSize), 0, Random.Range(-mapSize, mapSize));
+            List<GameObject> neightboughts = GetNeigbouringTiles( randomCoordinate );
+
+            for (int i = 0; i < allMapTiles.Count; i++)
+            {
+                if (allMapTiles[i] != null)
+                {
+                    allMapTiles[i].SetActive(false);
+                    allMapTiles[i].GetComponent<Tile>().isActiveTile = false;
+                }
+            }
+
+            GameObject randomTile;
+
+            TileCoordinatesDictionary.TryGetValue( randomCoordinate,out randomTile );
+
+            randomTile.SetActive(true);
+            randomTile.GetComponent<Tile>().isActiveTile = true;
+
+            for (int i = 0; i < neightboughts.Count; i++)
+            {
+                if (neightboughts[i] != null)
+                    neightboughts[i].SetActive(true);
+            }
+        }
     }
 
 }
